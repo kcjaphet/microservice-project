@@ -1,6 +1,6 @@
-# eks-machine-learning-microservice
+# machine-learning-microservice
 
-[![CircleCI](https://dl.circleci.com/status-badge/img/gh/Emmanuel-Dominic/eks-machine-learning-main.svg?style=svg)yyy](https://dl.circleci.com/status-badge/redirect/gh/Emmanuel-Dominic/eks-machine-learning-microservice/tree/main)
+[![CircleCI]([![CircleCI](https://dl.circleci.com/status-badge/img/gh/kcjaphet/eks-machine-learning-microservice/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/kcjaphet/eks-machine-learning-microservice/tree/main))
 
 ## A summary of the project
 
