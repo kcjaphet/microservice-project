@@ -1,4 +1,4 @@
-# machine-learning-microservice
+# microservice machine learning
 
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/kcjaphet/eks-machine-learning-microservice/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/kcjaphet/eks-machine-learning-microservice/tree/main)
 ## A summary of the project
@@ -11,85 +11,55 @@ This is a Machine Learning Microservice API project with a pre-trained `sklearn`
 
 * Clone the ptoject repo.
 ```
-$ git clone git@github.com:Emmanuel-Dominic/DevOps_Microservices.git
+$ git clone https://github.com/kcjaphet/microservice-project.git
 ```
 
 * Change to the project directory.
 ```
-$ cd project-ml-microservice-kubernetes
+$ cd microservice-project
 ```
 
-* Create a virtualenv with Python 3.7 and activate it.
-```
-$ python3.7 -m venv ~/.devops && python3 -m ~/.devops/bin/activate && \
-  source ~/.devops/bin/activate
-```
+Environment Setup.
 
-* Install the necessary system softwares.
-```
-$ ./setup_installations.sh
-```
+    Run make setup to setup python virtual environment.
+    Run make install to install dependencies.
 
-* Install the necessary project dependencies
-```
-$ make install
-```
+Step 1: Install dependencies.
 
-### Project Setup
+    Create pyhton virtual environment python -m venv ~/.devops and activate source ~/.devops/bin/activate
+    Install dependenciesand use make lint to lint the Python and Docker file
+    Install docker as described in the link.  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+    Install minikube as described here link  wget https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+    chmod +x minikube-linux-amd64
+    Install hadolint with these commands wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.10.0/hadolint-Linux-x86_64
 
-* Test project code using linting
-```
-$  make lint
-```
+Step 2: Run Docker container
 
-* Run project unittests
-```
-$  make test
-```
+    Run the application on docker ./run_docker.sh
+    Run ./make_predicton.sh to make predictions.
 
-* Dockerize project and make a prediction (`if it fails run with sudo`)
-```
-$ ./run_docker.sh 
-```
+Step 3: Upload to Docker Hub
 
-* Display docker log statements (`if it fails run with sudo`)
-```
-$ docker logs project-four
-```
+    Edit ./upload_docker.sh file, and run it to upload the docker image to docker hub
 
-* Deploy containerized application to DockerHub (`if it fails run with sudo`)
-```
-$ ./upload_docker.sh 
-```
+Step 4: Kubernetes deployment
 
-* Create a Kubernetes cluster and deploy a container using Kubernetes
-```
-$ ./run_kubernetes.sh 
-```
+    Run ./run_kubernetes.sh to deploy to kubernetes
+    Run ./make_predicton.sh to make predictions.
 
-* Running application locally (`Standalone application`)
-```
-$ flask run 
-```
-OR
 
-```
-$ python app.py 
-```
+Running app.py
 
-### Install eks cluster
+    Standalone: python app.py
+    Run in Docker: ./run_docker.sh
+    Run in Kubernetes: ./run_kubernetes.sh
 
-* Set your aws configuration using the `awscli` by running
-```
-$ sudo apt install awscli
+Kubernetes Steps
 
-$ aws configure
-```
-
-* deploy eks cluster
-```
-$ eks create cluster
-```
+    Setup and Configure Docker locally
+    Setup and Configure Kubernetes locally
+    Create Flask app in Container
+    Run via kubectl kubectl run kc-project --image=$dockerpath
 
 ### Folder and File Structure Explained
 - app.py: `our flask application file`
@@ -105,5 +75,4 @@ $ eks create cluster
     - These are script files with a sequence of commands run to perform a given task.
 
 ### Author:
-
-    Matembu Emmanuel Dominic | Software/Devops Engineer
+Kelechi Japhet DevOps Engr.
