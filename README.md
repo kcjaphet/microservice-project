@@ -9,7 +9,7 @@ This is a Machine Learning Microservice API project with a pre-trained `sklearn`
 
 ### Setup Project Environment
 
-* Clone the ptoject repo.
+* Clone the project repo.
 ```
 $ git clone https://github.com/kcjaphet/microservice-project.git
 ```
