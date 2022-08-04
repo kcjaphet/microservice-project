@@ -4,7 +4,7 @@
 
 # Step 1:
 # This is your Docker ID/path
-dockerpath=manueldominic/udacity-devops-app:1.1
+dockerpath=kcsiri/udacity-devops-app:1.1
 echo "Docker ID and Image: $dockerpath"
 
 # Step 2
