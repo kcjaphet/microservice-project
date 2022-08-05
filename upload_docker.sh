@@ -5,14 +5,14 @@
 
 # Step 1:
 # Create dockerpath
-dockerpath=kcsiri/udacity-devops-app:1.1
+dockerpath=kcsiri/kc-devops-app:1.1
 
 # Step 2:
 # Authenticate & tag
 echo "Docker ID and Image: $dockerpath"
 docker login
-docker image tag udacity-devops-app:1.1 kcsiri/udacity-devops-app:1.1
+docker image tag kc-devops-app:1.1 kcsiri/kc-devops-app:1.1
 
 # Step 3:
 # Push image to a docker repository
-docker image push kcsiri/udacity-devops-app:1.1
+docker image push kcsiri/kc-devops-app:1.1
