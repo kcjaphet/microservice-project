@@ -6,13 +6,19 @@ WORKDIR /app
 
 ## Step 2:
 # Copy source code to working directory
-COPY . app.py /app/
+COPY . .
 
 ## Step 3:
-# Install packages from requirements.txt
+RUN python3 -m venv venv
 # hadolint ignore=DL3013
-RUN pip install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir --trusted-host pypi.python.org -r requirements.txt
+# shellcheck disable=SC1091
+RUN . venv/bin/activate
+
+ENV PATH="venv/bin:$PATH"
+
+# Install packages from requirements.txt
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
 
 ## Step 4:
 # Expose port 80
@@ -20,4 +26,4 @@ EXPOSE 80
 
 ## Step 5:
 # Run app.py at container launch
-CMD ["python", "app.py"]
+ENTRYPOINT ["python3", "app.py"]

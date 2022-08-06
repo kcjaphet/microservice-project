@@ -4,12 +4,12 @@
 
 # Step 1:
 # Build image and add a descriptive tag
-sudo docker build --tag=kc-project .
+docker build --tag kc-devops-app:1.1 .
 
-# Step 2: 
+# Step 2:
 # List docker images
-sudo docker images
+docker images
 
-# Step 3: 
+# Step 3:
 # Run flask app
-sudo docker run -p 8000:80 kc-project  
+docker run --name project-fourx -dp 8000:80 kc-devops-app:1.1
