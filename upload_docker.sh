@@ -5,14 +5,16 @@
 
 # Step 1:
 # Create dockerpath
-dockerpath=kcsiri/kc-devops-app:1.1
+# dockerpath=<your docker ID/path>
+dockerpath=kcsiri/kc-project
 
-# Step 2:
+# Step 2:  
 # Authenticate & tag
 echo "Docker ID and Image: $dockerpath"
-docker login
-docker image tag kc-devops-app:1.1 kcsiri/kc-devops-app:1.1
+docker login -u kcsiri
+docker image tag kc-project $dockerpath
+
 
 # Step 3:
 # Push image to a docker repository
-docker image push kcsiri/kc-devops-app:1.1
+docker push $dockerpath
