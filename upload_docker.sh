@@ -6,13 +6,13 @@
 # Step 1:
 # Create dockerpath
 # dockerpath=<your docker ID/path>
-dockerpath=kcsiri/kc-project
+dockerpath=kcsiri/kc-devops-app:1.1
 
 # Step 2:  
 # Authenticate & tag
 echo "Docker ID and Image: $dockerpath"
 docker login -u kcsiri
-docker image tag kc-project $dockerpath
+docker image tag kc-devops-app:1.1 $dockerpath
 
 
 # Step 3:
